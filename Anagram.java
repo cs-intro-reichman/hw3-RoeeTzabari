@@ -61,16 +61,24 @@ public class Anagram {
 	public static String randomAnagram(String str) {
 		
 		String newStr = "";
+		String tempStr = "";
 		int randomChar;
-		double randomSpace;
+		
+		System.out.println(str.length());
 		while (str.length() > 0) {
+			
 			randomChar = (int)(Math.random() * str.length());
-			randomSpace = (Math.random());
-			if (randomSpace > 0.5) {
-				newStr += " ";
-			} 
 			newStr += str.charAt(randomChar);
-			str = str.replace("" + str.charAt(randomChar), "");
+			
+			if(randomChar == str.length() -1) {
+				tempStr = str.substring(0, randomChar);
+			} 
+			else {
+				tempStr = str.substring(0, randomChar) + str.substring(randomChar+1, str.length() - 1) + str.charAt(str.length() -1);
+			}
+
+			str = tempStr;
+			
 		}
 		return newStr;
 	}
