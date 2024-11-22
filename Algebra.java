@@ -26,20 +26,34 @@ public class Algebra {
 	// Returns x1 + x2
 	public static int plus(int x1, int x2) {
 		
-		for (int i = 0; i < x2 ; i++) {
-			x1++;
+		if (x2 > 0) {
+			for (int i = 0; i < x2 ; i++) {
+				x1++;
+			}
 		}
-
+		else {
+			for (int i = 0; i < x2 ; i--) {
+				x1++;
+			}
+		}
+	
 		return x1;
 	}
 
 	// Returns x1 - x2
 	public static int minus(int x1, int x2) {
-
-		for (int i = 0; i < x2 ; i++) {
-			x1--;
+		
+		if (x2 < 0) {
+			for (int i = 0; i < x2 ; i--) {
+				x1++;
+			}
 		}
-
+		else {
+			for (int i = 0; i < x2 ; i++) {
+				x1--;
+			}
+		}
+	
 		return x1;
 
 	}
@@ -48,8 +62,16 @@ public class Algebra {
 	public static int times(int x1, int x2) {
 
 		int answer = 0;
-		for (int i = 0; i < x2 ; i++) {
-			answer = plus(answer, x1);
+		
+		if (x2 < 0) {
+			for (int i = 0; i < x2 ; i--) {
+				answer = minus(answer, x1);
+			}
+		} 
+		else {
+			for (int i = 0; i < x2 ; i++) {
+				answer = plus(answer, x1);
+			}
 		}
 
 		return answer;
@@ -58,6 +80,9 @@ public class Algebra {
 	// Returns x^n (for n >= 0)
 	public static int pow(int x, int n) {
 		
+		if (n == 0) {
+			return 1;
+		}
 		int answer = x;
 		for (int i = 1; i < n ; i++) {
 			answer = times(answer, x);
@@ -95,6 +120,7 @@ public class Algebra {
 	// Returns the integer part of sqrt(x) 
 	public static int sqrt(int x) {
 		
+
 		int i = 0;
 		while (times(i, i) <= x) {
 			if (times(i, i) == x) {
@@ -104,5 +130,6 @@ public class Algebra {
 		}
 
 		return i - 1;
+		
 	}	  	  
 }
