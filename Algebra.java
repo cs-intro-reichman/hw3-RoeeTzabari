@@ -33,7 +33,7 @@ public class Algebra {
 		}
 		else {
 			for (int i = 0; i < x2 ; i--) {
-				x1++;
+				x1--;
 			}
 		}
 	
@@ -68,6 +68,11 @@ public class Algebra {
 				answer = minus(answer, x1);
 			}
 		} 
+		if (x1 < 0) {
+			for (int i = 0; i < x1 ; i--) {
+				answer = minus(answer, x2);
+			}
+		} 
 		else {
 			for (int i = 0; i < x2 ; i++) {
 				answer = plus(answer, x1);
@@ -96,13 +101,15 @@ public class Algebra {
 			
 		int i = 1;
 		if (x1 == x2) return 1;
-
+		
 		while (times(i, x2) <= x1) {
 			if (times(i, x2) == x1) {
 				return i;
 			}
 			i++;
 		}
+
+		if (x2 < 0) return times(i-1, -1);
 
 		return i - 1;
 
