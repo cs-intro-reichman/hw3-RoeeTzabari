@@ -30,9 +30,7 @@ public class Anagram {
 	public static boolean isAnagram(String str1, String str2) {
 		
 		String s1 = preProcess(str1), s2 = preProcess(str2);
-		if (s1.length() != s2.length()) {
-			return false;
-		}
+
 		char c;
 		for (int i = 0; i < s1.length(); i++) {
 			c = s1.charAt(i);
@@ -51,7 +49,7 @@ public class Anagram {
 		String newStr = "";
 		for (int i = 0; i < str.length(); i++) {
 			l = str.charAt(i);
-			if ((l > 'a' && l < 'z') || (l > 'A' && l < 'Z')) {
+			if ((l >= 'a' && l <= 'z') || (l >= 'A' && l <= 'Z') || (l == ' ')) {
 				newStr += ("" + l).toLowerCase();
 			}
 		}

@@ -34,7 +34,7 @@ public class LoanCalc {
 		double x = loan;
 
 		for (int i = 0; i < n; i++) {
-			x = (x - payment) * rate;
+			x = (x - payment) * (rate / 100 + 1);
 		}
 
 		return x;
