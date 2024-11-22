@@ -64,7 +64,6 @@ public class Anagram {
 		String tempStr = "";
 		int randomChar;
 		
-		System.out.println(str.length());
 		while (str.length() > 0) {
 			
 			randomChar = (int)(Math.random() * str.length());
