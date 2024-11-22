@@ -24,6 +24,8 @@ public class Anagram {
 			if (!pass) break;
 		}
 		System.out.println(pass ? "test passed" : "test Failed");
+
+		System.out.println(randomAnagram("abc def ghi"));
 	}  
 
 	// Returns true if the two given strings are anagrams, false otherwise.
@@ -64,7 +66,9 @@ public class Anagram {
 		int random;
 		while (str.length() > 0) {
 			random = (int)(Math.random() * str.length());
-			newStr += str.charAt(random);
+			if (str.charAt(random) != ' ') {
+				newStr += str.charAt(random);
+			}
 			str = str.replace("" + str.charAt(random), "");
 		}
 		return newStr;
